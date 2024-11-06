@@ -37,7 +37,7 @@ room.BreackGraph.OnlyPlayerBlocksDmg = room.GameMode.Parameters.GetBool("Partial
 room.BreackGraph.WeakBlocks = room.GameMode.Parameters.GetBool("LoosenBlocks");
 
 // запрещаем все в руках
-inventory.Main.Value = true;
+inventory.Main.Value = false;
 inventory.Secondary.Value = true;
 inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
@@ -46,7 +46,8 @@ inventory.Build.Value = false;
 // создаем команду
 const blueTeam = teams.create_team_blue();
 blueTeam.Spawns.RespawnTime.Value = 0;
-
+const redTeam = teams.create_team_red();
+redTeam.Spawns.RespawnTime.Value = 0;
 // настройка голосования
 function OnVoteResult(v) {
 	if (v.Result === null) return;
