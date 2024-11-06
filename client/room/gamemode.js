@@ -38,7 +38,7 @@ room.BreackGraph.WeakBlocks = room.GameMode.Parameters.GetBool("LoosenBlocks");
 
 //запрещаем все в руках
 inventory.Main.Value = false;
-inventory.Secondary.Value = true;
+inventory.Secondary.Value = false;
 inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
 inventory.Build.Value = false;
