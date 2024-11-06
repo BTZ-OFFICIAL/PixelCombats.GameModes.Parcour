@@ -43,9 +43,13 @@ inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
 inventory.Build.Value = false;
 
-// создаем команду
-const blueTeam = teams.create_team_blue();
-blueTeam.Spawns.RespawnTime.Value = 0;
+    // создание команд на основе параметров
+    if (hasRedTeam || (!hasRedTeam && !hasBlueTeam)) {
+        teams.create_team_red();
+    }
+    if (hasBlueTeam || (!hasRedTeam && !hasBlueTeam)) {
+        teams.create_team_blue();
+    }
 
 // настройка голосования
 function OnVoteResult(v) {
