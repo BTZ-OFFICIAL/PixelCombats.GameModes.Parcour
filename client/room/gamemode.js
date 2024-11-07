@@ -12,7 +12,7 @@ const GameStateValue = "Game";
 const EndOfMatchStateValue = "EndOfMatch";
 const EndAreaTag = "parcourend"; 	// тэг зоны конца паркура
 const SpawnAreasTag = "spawn";	// тэг зон промежуточных спавнов
-const EndTriggerPoints = 1000;	// сколько дается очков за завершение маршрута
+const EndTriggerPoints = 1;	// сколько дается очков за завершение маршрута
 const CurSpawnPropName = "CurSpawn"; // свойство, отвечающее за индекс текущего спавна 0 - дефолтный спавн
 const ViewSpawnsParameterName = "ViewSpawns";	// параметр создания комнаты, отвечающий за визуализацию спавнов
 const ViewEndParameterName = "ViewEnd";	// параметр создания комнаты, отвечающий за визуализацию конца маршрута
@@ -43,13 +43,14 @@ inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
 inventory.Build.Value = false;
 
-    // создание команд на основе параметров
-    if (hasRedTeam || (!hasRedTeam && !hasBlueTeam)) {
-        teams.create_team_red();
-    }
-    if (hasBlueTeam || (!hasRedTeam && !hasBlueTeam)) {
-        teams.create_team_blue();
-    }
+// создание команд на основе параметров
+Teams.Add("Blue", "игроки", { b: 150 });
+Teams.Add("Red", "VIPs", { g : 150 });
+var blueTeam = Teams.Get("Blue");
+var redTeam = Teams.Get("Red");
+blueTeam.Spawns.SpawnPointsGroups.Add(1);
+redTeam.Spawns.SpawnPointsGroups.Add(2);
+redTeam.Main.MainSet.Value = Main.Set.Red;
 
 // настройка голосования
 function OnVoteResult(v) {
