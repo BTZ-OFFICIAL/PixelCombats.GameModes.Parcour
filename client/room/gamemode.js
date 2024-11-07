@@ -50,7 +50,6 @@ var blueTeam = Teams.Get("Blue");
 var redTeam = Teams.Get("Red");
 blueTeam.Spawns.SpawnPointsGroups.Add(1);
 redTeam.Spawns.SpawnPointsGroups.Add(2);
-redTeam.Main.MainSet.Value = Main.Set.Red;
 
 // настройка голосования
 function OnVoteResult(v) {
