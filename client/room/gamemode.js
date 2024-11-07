@@ -44,12 +44,17 @@ inventory.Explosive.Value = false;
 inventory.Build.Value = false;
 
 // создание команд на основе параметров
-Teams.Add("Blue", "Blue", { b: 150 });
-Teams.Add("Red", "Red", { g : 150 });
-var blueTeam = Teams.Get("Blue");
-var redTeam = Teams.Get("Red");
-blueTeam.Spawns.SpawnPointsGroups.Add(1);
-redTeam.Spawns.SpawnPointsGroups.Add(2);
+export function create_team_red() {
+    Teams.Add(RED_TEAM_NAME, RED_TEAM_DISPLAY_NAME, new Color(1, 0, 0, 0));
+    Teams.Get(RED_TEAM_NAME).Spawns.SpawnPointsGroups.Add(RED_TEAM_SPAWN_POINTS_GROUP);
+    return Teams.Get(RED_TEAM_NAME);
+}
+
+export function create_team_blue() {
+    Teams.Add(BLUE_TEAM_NAME, BLUE_TEAM_DISPLAY_NAME, new Color(0, 0, 1, 0));
+    Teams.Get(BLUE_TEAM_NAME).Spawns.SpawnPointsGroups.Add(BLUE_TEAM_SPAWN_POINTS_GROUP);
+    return Teams.Get(BLUE_TEAM_NAME);
+}
 
 // настройка голосования
 function OnVoteResult(v) {
