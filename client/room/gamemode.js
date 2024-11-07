@@ -43,18 +43,9 @@ inventory.Melee.Value = true;
 inventory.Explosive.Value = true;
 inventory.Build.Value = true;
 
-// создание команд на основе параметров
-export function create_team_red() {
-    Teams.Add(RED_TEAM_NAME, RED_TEAM_DISPLAY_NAME, new Color(1, 0, 0, 0));
-    Teams.Get(RED_TEAM_NAME).Spawns.SpawnPointsGroups.Add(RED_TEAM_SPAWN_POINTS_GROUP);
-    return Teams.Get(RED_TEAM_NAME);
-}
-
-export function create_team_blue() {
-    Teams.Add(BLUE_TEAM_NAME, BLUE_TEAM_DISPLAY_NAME, new Color(0, 0, 1, 0));
-    Teams.Get(BLUE_TEAM_NAME).Spawns.SpawnPointsGroups.Add(BLUE_TEAM_SPAWN_POINTS_GROUP);
-    return Teams.Get(BLUE_TEAM_NAME);
-}
+//создаем команду
+const blueTeam = teams.create_team_blue();
+blueTeam.Spawns.RespawnTime.Value = 0;
 
 // настройка голосования
 function OnVoteResult(v) {
