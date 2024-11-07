@@ -44,8 +44,8 @@ inventory.Explosive.Value = false;
 inventory.Build.Value = false;
 
 // создание команд на основе параметров
-Teams.Add("Blue", "игроки", { b: 150 });
-Teams.Add("Red", "VIPs", { g : 150 });
+Teams.Add("Blue", "Blue", { b: 150 });
+Teams.Add("Red", "Red", { g : 150 });
 var blueTeam = Teams.Get("Blue");
 var redTeam = Teams.Get("Red");
 blueTeam.Spawns.SpawnPointsGroups.Add(1);
