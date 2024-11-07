@@ -46,7 +46,8 @@ inventory.Build.Value = true;
 //создаем команду
 const blueTeam = teams.create_team_blue();
 blueTeam.Spawns.RespawnTime.Value = 0;
-
+const redTeam = teams.create_team_red();
+redTeam.Spawns.RespawnTime.Value = 4
 // настройка голосования
 function OnVoteResult(v) {
 	if (v.Result === null) return;
