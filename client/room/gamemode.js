@@ -37,11 +37,11 @@ room.BreackGraph.OnlyPlayerBlocksDmg = room.GameMode.Parameters.GetBool("Partial
 room.BreackGraph.WeakBlocks = room.GameMode.Parameters.GetBool("LoosenBlocks");
 
 // разрешаем все в руках
-inventory.Main.Value = true;
+inventory.Main.Value = false;
 inventory.Secondary.Value = true;
-inventory.Melee.Value = true;
-inventory.Explosive.Value = true;
-inventory.Build.Value = true;
+inventory.Melee.Value = false;
+inventory.Explosive.Value = false;
+inventory.Build.Value = false;
 
 //создаем команду
 const blueTeam = teams.create_team_blue();
