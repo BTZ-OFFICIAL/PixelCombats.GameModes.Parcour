@@ -35,8 +35,7 @@ room.Damage.FriendlyFire = false;
 //room.Map.Rotation = MAP_ROTATION;
 room.BreackGraph.OnlyPlayerBlocksDmg = room.GameMode.Parameters.GetBool("PartialDesruction");
 room.BreackGraph.WeakBlocks = room.GameMode.Parameters.GetBool("LoosenBlocks");
-
- // set blue
+// set blue
 var inventory = Inventory.GetContext(blue);
 inventory.Main.Value = false;
 inventory.Secondary.Value = false;
