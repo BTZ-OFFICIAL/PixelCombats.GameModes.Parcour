@@ -43,7 +43,7 @@ inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
 inventory.Build.Value = false;
 
-// set Red
+// set red
 var inventory = Inventory.GetContext(red);
 inventory.MainInfinity.Value = true;
 inventory.SecondaryInfinity.Value = true;
