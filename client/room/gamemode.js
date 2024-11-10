@@ -35,6 +35,11 @@ room.Damage.FriendlyFire = false;
 //room.Map.Rotation = MAP_ROTATION;
 room.BreackGraph.OnlyPlayerBlocksDmg = room.GameMode.Parameters.GetBool("PartialDesruction");
 room.BreackGraph.WeakBlocks = room.GameMode.Parameters.GetBool("LoosenBlocks");
+//создаем команду
+const blueTeam = teams.create_team_blue();
+blueTeam.Spawns.RespawnTime.Value = 0;
+const redTeam = teams.create_team_red();
+redTeam.Spawns.RespawnTime.Value = 4;
 // set blue 
 inventory = Inventory.GetContext(Blue);
 inventory.Main.Value = false;
@@ -48,12 +53,6 @@ inventory.MainInfinity.Value = true;
 inventory.SecondaryInfinity.Value = true;
 inventory.ExplosiveInfinity.Value = true;
 inventory.BuildInfinity.Value = true;
-
-//создаем команду
-const blueTeam = teams.create_team_blue();
-blueTeam.Spawns.RespawnTime.Value = 0;
-const redTeam = teams.create_team_red();
-redTeam.Spawns.RespawnTime.Value = 4;
 // настройка голосования
 function OnVoteResult(v) {
 	if (v.Result === null) return;
