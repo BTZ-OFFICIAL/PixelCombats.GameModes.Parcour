@@ -35,17 +35,13 @@ room.Damage.FriendlyFire = false;
 //room.Map.Rotation = MAP_ROTATION;
 room.BreackGraph.OnlyPlayerBlocksDmg = room.GameMode.Parameters.GetBool("PartialDesruction");
 room.BreackGraph.WeakBlocks = room.GameMode.Parameters.GetBool("LoosenBlocks");
-
-// set blue
-var inventory = Inventory.GetContext(Blue);
+// set blue var inventory = Inventory.GetContext(Blue);
 inventory.Main.Value = false;
 inventory.Secondary.Value = false;
 inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
 inventory.Build.Value = false;
-
-// set red
-var inventory = Inventory.GetContext(Red);
+// set red var inventory = Inventory.GetContext(Red);
 inventory.MainInfinity.Value = true;
 inventory.SecondaryInfinity.Value = true;
 inventory.ExplosiveInfinity.Value = true;
@@ -124,15 +120,15 @@ const spawnTrigger = room.AreaPlayerTriggerService.Get("SpawnTrigger");
 spawnTrigger.Tags = [SpawnAreasTag];
 spawnTrigger.Enable = true;
 spawnTrigger.OnEnter.Add(function (player, area) {
-	if (spawnAreas == null || spawnAreas.length == 0) InitializeMap(); // todo костыль изза бага (не всегда прогружает нормально)	
-	if (spawnAreas == null || spawnAreas.length == 0) return;
+    if (spawnAreas === null || spawnAreas.length === 0) InitializeMap(); // todo костыль изза бага (не всегда прогружает нормально)	
+	if (spawnAreas === null || spawnAreas.length === 0) return;
 	const curSpawn = player.Properties.Get(CurSpawnPropName);
 	const leaderBoardProp = player.Properties.Get(LeaderBoardProp);
 	var i = 0;
-	if (curSpawn.Value != null) i = curSpawn.Value;
+	if (curSpawn.Value !== null) i = curSpawn.Value;
 	for (; i < spawnAreas.length; ++i) {
 		if (spawnAreas[i] == area) {
-			if (curSpawn.Value == null || i > curSpawn.Value) {
+			if (curSpawn.Value === null || i > curSpawn.Value) {
 				curSpawn.Value = i;
 				leaderBoardProp.Value += 1;
 			}
